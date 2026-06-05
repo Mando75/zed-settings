@@ -19,10 +19,6 @@
       "enabled": true,
       "remote": false,
       "settings": {}
-    },
-    "atlassian": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/mcp/authv2"]
     }
   },
   "diagnostics": {
@@ -183,7 +179,11 @@
     },
     "JavaScript": {
       "format_on_save": "on",
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "language_servers": [
+        "!typescript-language-server",
+        "vtsls",
+        "..."
+      ],
       "prettier": {
         "allowed": false
       },
@@ -282,7 +282,11 @@
     },
     "TypeScript": {
       "format_on_save": "on",
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "language_servers": [
+        "!typescript-language-server",
+        "vtsls",
+        "..."
+      ],
       "prettier": {
         "allowed": false
       },
@@ -300,7 +304,11 @@
     },
     "TSX": {
       "format_on_save": "on",
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "language_servers": [
+        "!typescript-language-server",
+        "vtsls",
+        "..."
+      ],
       "prettier": {
         "allowed": false
       },

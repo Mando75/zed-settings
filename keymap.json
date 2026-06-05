@@ -37,7 +37,7 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "t r f": ["task::Spawn", { "task_name": "Run Current File Tests" }],
       "t r a": ["task::Spawn", { "task_name": "Run All Tests" }]
