@@ -1,0 +1,65 @@
+//https://github.com/moodys-ma-platform/ma-infra/pull/584/ Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "shift shift": "command_palette::Toggle"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "shift shift": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "unbind": {
+      "cmd-e": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "t r f": ["task::Spawn", { "task_name": "Run Current File Tests" }],
+      "t r a": ["task::Spawn", { "task_name": "Run All Tests" }]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space g l": ["task::Spawn", { "task_name": "Run lazygit" }]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space w l": "workspace::ActivatePaneRight",
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w k": "workspace::ActivatePaneUp",
+      "space w j": "workspace::ActivatePaneDown",
+      "space w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
+      "space w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
+      "space w shift-k": ["workspace::MoveItemToPaneInDirection", { "direction": "up" }],
+      "space w shift-j": ["workspace::MoveItemToPaneInDirection", { "direction": "down" }]
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Run All Tests",
+    "command": "pnpm run test"
+  },
+  {
+    "label": "Run Current File Tests",
+    "command": "pnpm vitest run $ZED_FILENAME"
+  },
+  {
+    "label": "Run lazygit",
+    "command": "lazygit"
+  }
+]
