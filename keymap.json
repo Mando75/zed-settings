@@ -7,25 +7,7 @@
 // from the command palette.
 [
   {
-    "context": "Workspace",
-    "bindings": {
-      "shift shift": "file_finder::Toggle"
-    }
-  },
-  {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      // "j k": "vim::NormalBefore"
-    }
-  },
-  {
-    "context": "Workspace",
-    "unbind": {
-      "shift shift": "command_palette::Toggle"
-    }
-  },
-  {
-    "context": "Editor && mode == full",
+    "context": "Editor && mode == full || Workspace",
     "bindings": {
       "shift shift": "file_finder::Toggle"
     }
@@ -44,14 +26,16 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
       "space g l": ["task::Spawn", { "task_name": "Run lazygit" }]
     }
   },
   {
-    "context": "Workspace",
+    "context": "Editor && vim_mode == normal",
     "bindings": {
+      "space t t": "terminal_panel::Toggle",
+      "space t n": "workspace::NewTerminal",
       "space w l": "workspace::ActivatePaneRight",
       "space w h": "workspace::ActivatePaneLeft",
       "space w k": "workspace::ActivatePaneUp",
