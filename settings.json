@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "inlay_hints": {
+    "show_type_hints": false,
+    "show_value_hints": true,
+    "enabled": false
+  },
+  "snippet_sort_order": "top",
+  "code_lens": "on",
+  "document_symbols": "off",
+  "semantic_tokens": "combined",
   "cli_default_open_behavior": "existing_window",
   "file_finder": {
     "include_ignored": "all"
@@ -83,6 +92,7 @@
     "model_parameters": []
   },
   "edit_predictions": {
+    "allow_data_collection": "no",
     "copilot": {
       "enable_next_edit_suggestions": true
     },
@@ -122,11 +132,26 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Ayu Dark"
+    "dark": "Catppuccin Macchiato"
   },
   // LSP
   "lsp": {
     // OXFMT & LINT
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "oxlint": {
       "initialization_options": {
         "settings": {
@@ -281,6 +306,11 @@
       ]
     },
     "TypeScript": {
+      "colorize_brackets": true,
+      "inlay_hints": {
+        "enabled": false,
+        "show_background": false
+      },
       "format_on_save": "on",
       "language_servers": [
         "!typescript-language-server",
@@ -303,6 +333,10 @@
       ]
     },
     "TSX": {
+      "colorize_brackets": true,
+      "inlay_hints": {
+        "enabled": true
+      },
       "format_on_save": "on",
       "language_servers": [
         "!typescript-language-server",

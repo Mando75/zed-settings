@@ -10,5 +10,21 @@
   {
     "label": "Run lazygit",
     "command": "lazygit"
+  },
+  {
+    "label": "Run build",
+    "command": "pnpm run build"
+  },
+  {
+    "label": "Run lint",
+    "command": "pnpm run lint --fix"
+  },
+  {
+    "label": "Run typecheck",
+    "command": "pnpm run typecheck"
+  },
+  {
+    "label": "Run fmt",
+    "command": "pnpm run format"
   }
 ]

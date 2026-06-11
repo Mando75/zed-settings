@@ -31,6 +31,12 @@
       "space t f": ["task::Spawn", { "task_name": "Run Current File Tests" }],
       "space t a": ["task::Spawn", { "task_name": "Run All Tests" }],
 
+      // Run build
+      "space r b": ["task::Spawn", { "task_name": "Run build" }],
+      "space r t": ["task::Spawn", { "task_name": "Run typecheck" }],
+      "space r l": ["task::Spawn", { "task_name": "Run lint" }],
+      "space r f": ["task::Spawn", { "task_name": "Run fmt" }],
+
       // Terminal pane management
       "space t t": "terminal_panel::Toggle",
       "space t n": "workspace::NewTerminal",

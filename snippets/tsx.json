@@ -1,0 +1,7 @@
+{
+  "Route module": {
+    "prefix": "route",
+    "body": [],
+    "description": "Create a new RR7 route module"
+  }
+}
