@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "snippet_sort_order": "top",
   "cli_default_open_behavior": "existing_window",
   "file_finder": {
     "include_ignored": "all"
@@ -127,6 +128,21 @@
   // LSP
   "lsp": {
     // OXFMT & LINT
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "oxlint": {
       "initialization_options": {
         "settings": {
