@@ -12,7 +12,6 @@
     "show_value_hints": true,
     "enabled": false
   },
-  "snippet_sort_order": "top",
   "code_lens": "on",
   "document_symbols": "off",
   "semantic_tokens": "combined",
