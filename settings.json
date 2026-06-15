@@ -19,6 +19,7 @@
   "file_finder": {
     "include_ignored": "all"
   },
+  "file_scan_exclusions": ["node_modules/*"],
   "search": {
     "include_ignored": false
   },
@@ -203,11 +204,7 @@
     },
     "JavaScript": {
       "format_on_save": "on",
-      "language_servers": [
-        "!typescript-language-server",
-        "vtsls",
-        "..."
-      ],
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
       "prettier": {
         "allowed": false
       },
@@ -311,11 +308,7 @@
         "show_background": false
       },
       "format_on_save": "on",
-      "language_servers": [
-        "!typescript-language-server",
-        "vtsls",
-        "..."
-      ],
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
       "prettier": {
         "allowed": false
       },
@@ -337,11 +330,7 @@
         "enabled": true
       },
       "format_on_save": "on",
-      "language_servers": [
-        "!typescript-language-server",
-        "vtsls",
-        "..."
-      ],
+      "language_servers": ["!typescript-language-server", "vtsls", "..."],
       "prettier": {
         "allowed": false
       },
