@@ -15,6 +15,8 @@
   "code_lens": "on",
   "document_symbols": "off",
   "semantic_tokens": "combined",
+  "colorize_brackets": true,
+  "snippet_sort_order": "top",
   "cli_default_open_behavior": "existing_window",
   "file_finder": {
     "include_ignored": "all"
