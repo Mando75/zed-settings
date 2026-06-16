@@ -21,7 +21,6 @@
   "file_finder": {
     "include_ignored": "all"
   },
-  "file_scan_exclusions": ["node_modules/*"],
   "search": {
     "include_ignored": false
   },
