@@ -5,7 +5,7 @@
   },
   {
     "label": "Run Current File Tests",
-    "command": "pnpm vitest run $ZED_FILENAME"
+    "command": "zsh -c 'f=$ZED_FILE; f=${f%.test.ts}; f=${f%.test.tsx}; f=${f%.spec.ts}; f=${f%.spec.tsx}; f=${f%.ts}; f=${f%.tsx}; pnpm vitest run $f'"
   },
   {
     "label": "Run lazygit",
