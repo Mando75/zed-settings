@@ -19,7 +19,7 @@
     }
   },
   {
-    "context": "Editor && vim_mode == normal",
+    "context": "Workspace || Editor && vim_mode == normal",
     "bindings": {
       "space g l": ["task::Spawn", { "task_name": "Run lazygit" }]
     }
