@@ -14,7 +14,7 @@
     "body": [
       "import { Context, Effect, Layer } from 'effect';",
       "",
-      "export class ${1:ServiceName} extends Context.Service<${1:ServiceName}>()('map-console/${1:ServiceName}', {",
+      "export class ${1:ServiceName} extends Context.Service<${1:ServiceName}>()('${2:AppName}/${1:ServiceName}', {",
       "  make: Effect.gen(function* () {",
       "    $0",
       "  })",
