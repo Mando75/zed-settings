@@ -5,8 +5,8 @@
 //
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
-{
+// command palette (cmd-shift-p / ctrl-shift-p) 
+{ 
   "inlay_hints": {
     "show_type_hints": false,
     "show_value_hints": true,
@@ -100,7 +100,7 @@
     "provider": "copilot"
   },
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": false
   },
   "agent_servers": {
     "claude-acp": {

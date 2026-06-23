@@ -19,9 +19,14 @@
     }
   },
   {
-    "context": "Workspace || Editor && vim_mode == normal",
+    "context": "Workspace && vim_mode == normal || Editor && vim_mode == normal",
     "bindings": {
-      "space g l": ["task::Spawn", { "task_name": "Run lazygit" }]
+      // run lazygit
+      "space g l": ["task::Spawn", { "task_name": "Run lazygit" }],
+      // Terminal pane management
+      "space t t": "terminal_panel::Toggle",
+      "space t n": "workspace::NewTerminal",
+      "space t c": ["task::Spawn", { "task_name": "Run Claude" }]
     }
   },
   {
@@ -36,10 +41,6 @@
       "space r t": ["task::Spawn", { "task_name": "Run typecheck" }],
       "space r l": ["task::Spawn", { "task_name": "Run lint" }],
       "space r f": ["task::Spawn", { "task_name": "Run fmt" }],
-
-      // Terminal pane management
-      "space t t": "terminal_panel::Toggle",
-      "space t n": "workspace::NewTerminal",
 
       // Navigating between panes
       "space w l": "workspace::ActivatePaneRight",

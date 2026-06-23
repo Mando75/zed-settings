@@ -26,5 +26,9 @@
   {
     "label": "Run fmt",
     "command": "pnpm run format"
+  },
+  {
+    "label": "Run Claude",
+    "command": "claude --model sonnet"
   }
 ]
