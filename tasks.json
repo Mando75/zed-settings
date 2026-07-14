@@ -11,7 +11,7 @@
     "label": "Run lazygit",
     "command": "lazygit",
     "use_new_terminal": false,
-    "allow_concurrent_runs": true
+    "allow_concurrent_runs": false
   },
   {
     "label": "Run build",

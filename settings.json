@@ -5,7 +5,7 @@
 //
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p) 
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "sticky_scroll": {
     "enabled": true
@@ -22,7 +22,7 @@
   "snippet_sort_order": "top",
   "cli_default_open_behavior": "existing_window",
   "file_finder": {
-    "include_ignored": "all"
+    "include_ignored": "smart"
   },
   "search": {
     "include_ignored": false

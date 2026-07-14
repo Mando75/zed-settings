@@ -1,4 +1,9 @@
 {
+  "Insert Yield*": {
+    "prefix": "yss",
+    "body": ["yield* $0"],
+    "description": "Inserts a yield* statement"
+  },
   "Insert Effect Generator": {
     "prefix": "egf",
     "body": ["Effect.gen(function* () {", "  $0", "})"],
@@ -6,7 +11,7 @@
   },
   "Insert Effect fn": {
     "prefix": "eff",
-    "body": ["Effect.fn('${1:FunctionName}')(function* () {", "  $0", "})"],
+    "body": ["Effect.fn('${1:FunctionName}')(function* ($2) {", "  $0", "})"],
     "description": "Insert a new Effect generator fn"
   },
   "Insert Effect Service": {
