@@ -40,7 +40,8 @@
     }
   },
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
+    "auto_reveal_entries": false
   },
   "git_panel": {
     "tree_view": true,
