@@ -15,7 +15,7 @@
     "show_value_hints": true,
     "enabled": false
   },
-  "code_lens": "on",
+  "code_lens": "menu",
   "document_symbols": "off",
   "semantic_tokens": "combined",
   "colorize_brackets": true,
@@ -46,6 +46,38 @@
     "tree_view": true,
     "dock": "right"
   },
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+
+  // Status bar settings
+  // https://zed.dev/docs/reference/all-settings#status-bar
+  "status_bar": {
+    "show_active_file": false,
+    "experimental.show": false
+  },
+
+  // Cursor shape: bar, block, underline, hollow
+  // https://zed.dev/docs/reference/all-settings#cursor-shape
+  "cursor_shape": "bar",
+
+  // Whether the cursor blinks
+  // https://zed.dev/docs/reference/all-settings#cursor-blink
+  "cursor_blink": true,
+
+  // Use macOS native window tabs
+  // https://zed.dev/docs/reference/all-settings#use-system-tabs
+  "use_system_window_tabs": true,
+  // Show whitespace characters: all, selection, none, boundary
+  // https://zed.dev/docs/reference/all-settings#show-whitespaces
+  "show_whitespaces": "all",
+  // Gutter settings
+  // https://zed.dev/docs/reference/all-settings#gutter
+  "gutter": {
+    "line_numbers": true
+  },
   "collaboration_panel": {
     "dock": "right"
   },
@@ -57,6 +89,9 @@
   },
   "terminal": {
     "dock": "right"
+  },
+  "toolbar": {
+    "code_actions": true
   },
   "preview_tabs": {
     "enabled": false
@@ -96,6 +131,7 @@
     "model_parameters": []
   },
   "edit_predictions": {
+    "mode": "subtle",
     "allow_data_collection": "no",
     "copilot": {
       "enable_next_edit_suggestions": true
@@ -138,6 +174,18 @@
     "light": "Ayu Light",
     "dark": "Catppuccin Macchiato"
   },
+  // Whether to show signature help after completion or bracket pair inserted
+  // https://zed.dev/docs/reference/all-settings#show-signature-help-after-edits
+  "show_signature_help_after_edits": false,
+
+  // Show method signatures when inside parentheses
+  // https://zed.dev/docs/reference/all-settings#auto-signature-help
+  "auto_signature_help": false,
+
+  // Hide variable values in private files (e.g., .env, .pem)
+  // https://zed.dev/docs/reference/all-settings#redact-private-values
+  "redact_private_values": true,
+
   // LSP
   "lsp": {
     // OXFMT & LINT

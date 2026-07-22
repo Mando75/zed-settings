@@ -7,31 +7,50 @@
 // from the command palette.
 [
   {
-    "context": "Editor && mode == full || Workspace",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      "shift shift": "file_finder::Toggle"
-    }
-  },
-  {
-    "context": "Editor && mode == full",
-    "unbind": {
-      "cmd-e": "file_finder::Toggle"
-    }
-  },
-  {
-    "context": "Workspace && vim_mode == normal || Editor && vim_mode == normal",
-    "bindings": {
-      // run lazygit
+      // put key-bindings here if you want them to work in normal & visual mode
+      // Git
       "space g l": ["task::Spawn", { "task_name": "Run lazygit" }],
-      // Terminal pane management
-      "space t t": "terminal_panel::Toggle",
-      "space t n": "workspace::NewTerminal",
-      "space t c": ["task::Spawn", { "task_name": "Run Claude" }]
+      "space g h d": "editor::ToggleSelectedDiffHunks",
+      "space g s": "git_panel::ToggleFocus",
+      // Toggle inlay hints
+      "space t i": "editor::ToggleInlayHints",
+      // Toggle soft wrap
+      "space u w": "editor::ToggleSoftWrap",
+      // NOTE: Toggle Zen mode, partially with nvim plugin like no-neck-pain
+      "space c z": "workspace::ToggleCenteredLayout",
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+      // Open recent project
+      "space f p": "projects::OpenRecent",
+      // Search word under cursor
+      "space s w": "pane::DeploySearch",
+      // Search on current buffer
+      "space s b": "buffer_search::Deploy"
     }
   },
   {
-    "context": "vim_mode == normal && !menu",
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      // Navigating between panes
+      "space w l": "workspace::ActivatePaneRight",
+      "space w h": "workspace::ActivatePaneLeft",
+      "space w k": "workspace::ActivatePaneUp",
+      "space w j": "workspace::ActivatePaneDown",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      // Move tab to another pane
+      "space w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
+      "space w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
+      "space w shift-k": ["workspace::MoveItemToPaneInDirection", { "direction": "up" }],
+      "space w shift-j": ["workspace::MoveItemToPaneInDirection", { "direction": "down" }],
+
       // Run tests
       "space t f": ["task::Spawn", { "task_name": "Run Current File Tests" }],
       "space t a": ["task::Spawn", { "task_name": "Run All Tests" }],
@@ -42,17 +61,186 @@
       "space r l": ["task::Spawn", { "task_name": "Run lint" }],
       "space r f": ["task::Spawn", { "task_name": "Run fmt" }],
 
-      // Navigating between panes
-      "space w l": "workspace::ActivatePaneRight",
-      "space w h": "workspace::ActivatePaneLeft",
-      "space w k": "workspace::ActivatePaneUp",
-      "space w j": "workspace::ActivatePaneDown",
-
-      // Move tab to another pane
-      "space w shift-l": ["workspace::MoveItemToPaneInDirection", { "direction": "right" }],
-      "space w shift-h": ["workspace::MoveItemToPaneInDirection", { "direction": "left" }],
-      "space w shift-k": ["workspace::MoveItemToPaneInDirection", { "direction": "up" }],
-      "space w shift-j": ["workspace::MoveItemToPaneInDirection", { "direction": "down" }]
+      // LSP
+      "space c a": "editor::ToggleCodeActions",
+      "space .": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename",
+      "space c f": "editor::Format",
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
+      "g t": "editor::GoToTypeDefinition",
+      "g T": "editor::GoToTypeDefinitionSplit",
+      "g r": "editor::FindAllReferences",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPreviousDiagnostic",
+      // Next/prev error
+      "] e": ["editor::GoToDiagnostic", { "severity": "error" }],
+      "[ e": ["editor::GoToPreviousDiagnostic", { "severity": "error" }],
+      // Next/prev warning
+      "] w": ["editor::GoToDiagnostic", { "severity": "warning" }],
+      "[ w": ["editor::GoToPreviousDiagnostic", { "severity": "warning" }],
+      // Next/prev hint
+      "] H": ["editor::GoToDiagnostic", { "severity": "hint" }],
+      "[ H": ["editor::GoToPreviousDiagnostic", { "severity": "hint" }],
+      // Symbol search
+      "s s": "outline::Toggle",
+      "s S": "project_symbols::Toggle",
+      // Diagnostic
+      "space x x": "diagnostics::Deploy",
+      // Git
+      // Git prev/next hunk
+      "] h": "editor::GoToHunk",
+      "[ h": "editor::GoToPreviousHunk",
+      // Git project diff
+      "space g d": "git::Diff",
+      // Toggle inline blame
+      "space g b": "editor::ToggleGitBlameInline",
+      // Expand all diff hunks
+      "space g h e": "editor::ExpandAllDiffHunks",
+      // Buffers
+      // Switch between buffers
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      // Close active panel
+      "shift-q": "pane::CloseActiveItem",
+      "ctrl-q": "pane::CloseActiveItem",
+      "space b d": "pane::CloseActiveItem",
+      // Buffer switch alias
+      "space b b": "pane::ActivatePreviousItem",
+      // Close other items
+      "space b o": "pane::CloseOtherItems",
+      // Save file
+      "ctrl-s": "workspace::Save",
+      // File finder
+      "shift shift": "file_finder::Toggle",
+      // Project search
+      "space /": "pane::DeploySearch",
+      // Show project panel with current file
+      "space e": "pane::RevealInProjectPanel",
+      // Move lines up/down
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+      // Buffer prev/next aliases
+      "[b": "pane::ActivatePreviousItem",
+      "]b": "pane::ActivateNextItem",
+      // Window management
+      "space w w": "workspace::ActivatePreviousPane",
+      "space w -": "pane::SplitDown",
+      "space w |": "pane::SplitRight",
+      // New file
+      "space f n": "workspace::NewFile",
+      // Quit all
+      "space q q": "workspace::CloseWindow",
+      // Close active buffer
+      "space w d": "pane::CloseActiveItem"
+    }
+  },
+  // Empty pane, set of keybindings that are available when there is no active editor
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "shift shift": "file_finder::Toggle",
+      // Open recent project
+      "space f p": "projects::OpenRecent",
+      // Git status
+      "space g s": "git_panel::ToggleFocus"
+    }
+  },
+  // Rename
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "r": "editor::Rename" // zed specific
+    }
+  },
+  // Code Action
+  {
+    "context": "Editor && vim_operator == c",
+    "bindings": {
+      "c": "vim::CurrentLine",
+      "a": "editor::ToggleCodeActions" // zed specific
+    }
+  },
+  // Toggle terminal
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-\\": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace && vim_mode == normal || Editor && vim_mode == normal",
+    "bindings": {
+      // Terminal pane management
+      "space t t": "terminal_panel::Toggle",
+      "space t n": "workspace::NewTerminal",
+      "space t c": ["task::Spawn", { "task_name": "Run Claude" }]
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  // File panel (netrw)
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      // Close project panel as project file panel on the right
+      "q": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleRightDock",
+      // Navigate between panel
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  // Panel navigation
+  {
+    "context": "Dock",
+    "bindings": {
+      "ctrl-w h": "workspace::ActivatePaneLeft",
+      "ctrl-w l": "workspace::ActivatePaneRight",
+      "ctrl-w k": "workspace::ActivatePaneUp",
+      "ctrl-w j": "workspace::ActivatePaneDown"
+    }
+  },
+  // Snippets
+  {
+    "context": "Editor && (extension == ts || extensin == tsx)",
+    "bindings": {
+      "e f f Tab": [
+        "editor::InsertSnippet",
+        { "language": "typescript", "name": "Insert Effect fn" }
+      ],
+      "e f g Tab": [
+        "editor::InsertSnippet",
+        { "language": "typescript", "name": "Insert Effect Generator" }
+      ],
+      "e t s Tab": [
+        "editor::InsertSnippet",
+        { "language": "typescript", "name": "Insert Effect Service" }
+      ],
+      "y s s Tab": [
+        "editor::InsertSnippet",
+        { "language": "typescript", "name": "Insert Yield*" }
+      ]
     }
   }
 ]
