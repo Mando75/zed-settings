@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_edit_predictions": false,
+  "disable_ai": true,
   "sticky_scroll": {
     "enabled": true
   },
@@ -15,7 +17,7 @@
     "show_value_hints": true,
     "enabled": false
   },
-  "code_lens": "menu",
+  "code_lens": "on",
   "document_symbols": "off",
   "semantic_tokens": "combined",
   "colorize_brackets": true,
@@ -44,6 +46,7 @@
     "auto_reveal_entries": false
   },
   "git_panel": {
+    "group_by": "staging",
     "tree_view": true,
     "dock": "right"
   },
@@ -57,7 +60,7 @@
   // https://zed.dev/docs/reference/all-settings#status-bar
   "status_bar": {
     "show_active_file": false,
-    "experimental.show": false
+    "experimental.show": true
   },
 
   // Cursor shape: bar, block, underline, hollow
@@ -98,6 +101,9 @@
     "enabled": false
   },
   "agent": {
+    "auto_compact": {
+      "threshold": "90%"
+    },
     "commit_message_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini"
@@ -126,7 +132,7 @@
         }
       }
     },
-    "dock": "right",
+    "dock": "left",
     "favorite_models": [],
     "notify_when_agent_waiting": "never",
     "model_parameters": []
@@ -144,12 +150,16 @@
   },
   "agent_servers": {
     "claude-acp": {
+      "favorite_config_option_values": {
+        "effort": [
+          "high"
+        ]
+      },
       "default_config_options": {
+        "mode": "acceptEdits",
+        "effort": "high",
         "model": "sonnet[1m]"
       },
-      "type": "registry"
-    },
-    "cursor": {
       "type": "registry"
     }
   },
@@ -185,7 +195,7 @@
 
   // Hide variable values in private files (e.g., .env, .pem)
   // https://zed.dev/docs/reference/all-settings#redact-private-values
-  "redact_private_values": true,
+  "redact_private_values": false,
 
   // LSP
   "lsp": {
@@ -262,8 +272,9 @@
         "allowed": false
       },
       "code_actions_on_format": {
-        "source.addMissingImports.ts": true,
-        "source.organizeImports": true
+        "source.addMissingImports": true,
+        "source.organizeImports": true,
+        "source.removeUnusedImports": true
       },
       "formatter": [
         {
@@ -361,13 +372,15 @@
         "show_background": false
       },
       "format_on_save": "on",
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "language_servers": ["typescript-ls", "!typescript-language-server", "vtsls", "..."],
       "prettier": {
         "allowed": false
       },
       "code_actions_on_format": {
         "source.addMissingImports.ts": true,
-        "source.organizeImports": true
+        "source.addMissingImports": true,
+        "source.organizeImports": true,
+        "source.removeUnusedImports": true
       },
       "formatter": [
         {
@@ -383,13 +396,15 @@
         "enabled": true
       },
       "format_on_save": "on",
-      "language_servers": ["!typescript-language-server", "vtsls", "..."],
+      "language_servers": ["typescript-ls", "!typescript-language-server", "vtsls", "..."],
       "prettier": {
         "allowed": false
       },
       "code_actions_on_format": {
         "source.addMissingImports.ts": true,
-        "source.organizeImports": true
+        "source.addMissingImports": true,
+        "source.organizeImports": true,
+        "source.removeUnusedImports": true
       },
       "formatter": [
         {

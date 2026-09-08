@@ -28,7 +28,9 @@
       // Search word under cursor
       "space s w": "pane::DeploySearch",
       // Search on current buffer
-      "space s b": "buffer_search::Deploy"
+      "space s b": "buffer_search::Deploy",
+      // Fuzzy text search
+      "space f f": "text_finder::Toggle"
     }
   },
   {
@@ -146,7 +148,8 @@
       // Open recent project
       "space f p": "projects::OpenRecent",
       // Git status
-      "space g s": "git_panel::ToggleFocus"
+      "space g s": "git_panel::ToggleFocus",
+      "space g l": ["task::Spawn", { "task_name": "Run lazygit" }]
     }
   },
   // Rename
@@ -178,7 +181,7 @@
       // Terminal pane management
       "space t t": "terminal_panel::Toggle",
       "space t n": "workspace::NewTerminal",
-      "space t c": ["task::Spawn", { "task_name": "Run Claude" }]
+      "space t c": "agent::FocusAgent"
     }
   },
   {
@@ -223,24 +226,17 @@
   },
   // Snippets
   {
-    "context": "Editor && (extension == ts || extensin == tsx)",
+    "context": "Editor && (extension == ts || extension == tsx)",
     "bindings": {
       "e f f Tab": [
         "editor::InsertSnippet",
         { "language": "typescript", "name": "Insert Effect fn" }
       ],
-      "e f g Tab": [
+      "e g f Tab": [
         "editor::InsertSnippet",
         { "language": "typescript", "name": "Insert Effect Generator" }
       ],
-      "e t s Tab": [
-        "editor::InsertSnippet",
-        { "language": "typescript", "name": "Insert Effect Service" }
-      ],
-      "y s s Tab": [
-        "editor::InsertSnippet",
-        { "language": "typescript", "name": "Insert Yield*" }
-      ]
+      "y s s Tab": ["editor::InsertSnippet", { "language": "typescript", "name": "Insert Yield*" }]
     }
   }
 ]
